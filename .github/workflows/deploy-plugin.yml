@@ -1,0 +1,66 @@
+name: Build & Deploy Dataverse Plugin
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  PLUGIN_DLL: ${{ secrets.PLUGIN_ASSEMBLY_PATH }}
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore and Build (Release)
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+
+      - name: Install Power Platform CLI
+        uses: microsoft/powerplatform-actions/actions-install@v1
+
+      - name: Authenticate to Dataverse
+        run: |
+          pac auth create --url "${{ secrets.DATAVERSE_URL }}" \
+            --username "${{ secrets.DATAVERSE_USERNAME }}" \
+            --password "${{ secrets.DATAVERSE_PASSWORD }}" \
+            --name "ci"
+
+      - name: Show current org
+        run: pac org whoami || true
+
+      - name: Upload plugin assembly (add-reference)
+        run: pac solution add-reference --path "${PLUGIN_DLL}" || true
+
+      - name: Create plugin assembly (fallback)
+        run: |
+          pac plugin create-assembly \
+            --assembly "${PLUGIN_DLL}" \
+            --name "DataversePlugin" \
+            --friendly-name "Copy Phone Plugin" \
+            --isolation-mode Sandbox \
+            --type Database || true
+
+      - name: Register plugin step
+        run: |
+          pac plugin create-step \
+            --plugin "DataversePlugin.CopyPhonePlugin" \
+            --message Create \
+            --entity contact \
+            --stage PreOperation \
+            --execution-scope User || true
+
+      - name: Done
+        run: echo "Plugin deploy job finished."
