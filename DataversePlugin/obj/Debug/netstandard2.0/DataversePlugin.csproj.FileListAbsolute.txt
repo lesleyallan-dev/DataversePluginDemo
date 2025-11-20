@@ -1,0 +1,10 @@
+/Users/lesleyallan/DataversePluginDemo/DataversePlugin/bin/Debug/netstandard2.0/DataversePlugin.deps.json
+/Users/lesleyallan/DataversePluginDemo/DataversePlugin/bin/Debug/netstandard2.0/DataversePlugin.dll
+/Users/lesleyallan/DataversePluginDemo/DataversePlugin/bin/Debug/netstandard2.0/DataversePlugin.pdb
+/Users/lesleyallan/DataversePluginDemo/DataversePlugin/obj/Debug/netstandard2.0/DataversePlugin.csproj.AssemblyReference.cache
+/Users/lesleyallan/DataversePluginDemo/DataversePlugin/obj/Debug/netstandard2.0/DataversePlugin.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lesleyallan/DataversePluginDemo/DataversePlugin/obj/Debug/netstandard2.0/DataversePlugin.AssemblyInfoInputs.cache
+/Users/lesleyallan/DataversePluginDemo/DataversePlugin/obj/Debug/netstandard2.0/DataversePlugin.AssemblyInfo.cs
+/Users/lesleyallan/DataversePluginDemo/DataversePlugin/obj/Debug/netstandard2.0/DataversePlugin.csproj.CoreCompileInputs.cache
+/Users/lesleyallan/DataversePluginDemo/DataversePlugin/obj/Debug/netstandard2.0/DataversePlugin.dll
+/Users/lesleyallan/DataversePluginDemo/DataversePlugin/obj/Debug/netstandard2.0/DataversePlugin.pdb

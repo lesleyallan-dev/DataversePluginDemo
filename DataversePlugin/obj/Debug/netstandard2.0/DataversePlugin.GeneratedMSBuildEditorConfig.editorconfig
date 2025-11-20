@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = DataversePlugin
+build_property.ProjectDir = /Users/lesleyallan/DataversePluginDemo/DataversePlugin/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
