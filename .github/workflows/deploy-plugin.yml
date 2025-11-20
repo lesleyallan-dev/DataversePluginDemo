@@ -34,11 +34,7 @@ jobs:
         uses: microsoft/powerplatform-actions/actions-install@v1
 
       - name: Authenticate to Dataverse
-        run: |
-          pac auth create --url "${{ secrets.DATAVERSE_URL }}" \
-            --username "${{ secrets.DATAVERSE_USERNAME }}" \
-            --password "${{ secrets.DATAVERSE_PASSWORD }}" \
-            --name "ci"
+        run: pac auth create --url "${{ secrets.DATAVERSE_URL }}" --username "${{ secrets.DATAVERSE_USERNAME }}" --password "${{ secrets.DATAVERSE_PASSWORD }}"
 
       - name: Show current org
         run: pac org whoami || true
