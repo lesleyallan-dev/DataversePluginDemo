@@ -29,7 +29,6 @@ jobs:
           dotnet restore
           dotnet build --configuration Release
 
-
       - name: Install Power Platform CLI
         uses: microsoft/powerplatform-actions/actions-install@v1
 
