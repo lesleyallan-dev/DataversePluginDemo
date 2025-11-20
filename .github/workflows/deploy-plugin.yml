@@ -35,10 +35,11 @@ jobs:
 
       - name: Authenticate to Dataverse
         shell: bash
-            run: |
-              pac auth create --url "${{ secrets.DATAVERSE_URL }}" \
+        run: |
+          pac auth create --url "${{ secrets.DATAVERSE_URL }}" \
                     --username "${{ secrets.DATAVERSE_USERNAME }}" \
-                    --password "${{ secrets.DATAVERSE_PASSWORD }}"
+                    --password "${{ secrets.DATAVERSE_PASSWORD }}" \
+                    --name "ci"
 
       - name: Show current org
         run: pac org whoami || true
