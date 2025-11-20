@@ -24,10 +24,11 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore and Build (Release)
+        working-directory: DataversePlugin
         run: |
-          cd DataversePlugin
           dotnet restore
           dotnet build --configuration Release
+
 
       - name: Install Power Platform CLI
         uses: microsoft/powerplatform-actions/actions-install@v1
