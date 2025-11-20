@@ -25,6 +25,7 @@ jobs:
 
       - name: Restore and Build (Release)
         run: |
+          cd DataversePlugin
           dotnet restore
           dotnet build --configuration Release
 
